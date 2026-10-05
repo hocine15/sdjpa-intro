@@ -21,7 +21,8 @@ public class DataInitializer implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        bookRepository.deleteAll();
+        // because in real database, we do not initialize data, but in test database, we can initialize data
+        bookRepository.deleteAll(); // delete all books before adding new ones
 
         Book bookDDD = new Book("Domain Driven Design", "123", "RandomHouse", null);
         Book savedDDD = bookRepository.save(bookDDD);
